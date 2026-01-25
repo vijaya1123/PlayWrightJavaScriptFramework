@@ -1,0 +1,33 @@
+{
+  "name": "opencartplaywright",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test annotations.spec.ts --headed",
+    "test:api": "npx playwright test --grep @API --headed",
+    "test:UI": "npx playwright test --grep @UI ",
+    "test:reg": "npx playwright test --grep @test --headed",
+    "test:datadriven": "npx playwright test --grep @datadriven --headed ",
+    "test:master:headed": "playwright test --grep @master --headed",
+    "test:end-to-end": "playwright test --grep @end-to-end ",
+    "test:sanity:debug": "playwright test --grep @sanity --debug"
+  },
+  
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.23",
+    "ajv": "^8.17.1",
+    "allure-playwright": "^3.2.2",
+    "playwright": "^1.58.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.9.0",
+    "csv-parse": "^5.6.0",
+    "luxon": "^3.7.2",
+    "xlsx": "^0.18.5"
+  }
+}
