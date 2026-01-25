@@ -1,16 +1,28 @@
 pipeline {
- 
-  stages {
-    stage('Install dependencies') {
+    agent any
+  
+    stages {
+        stage('Install dependencies') {
+            steps {
+                bat 'npm install'
+            }
+        }
+  
+    stage('Checkout') {
       steps {
-        bat 'npm install'
+             bat 'npm run test:UI
       }
+    }
     }
 
-    stage('Run tests') {
-      steps {
-        bat npm run test:UI
-      }
+post {
+    always {
+        archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
     }
-  }
+    failure {
+        echo 'Tests failed! Check the report.'
+    }
 }
+
+}
+    
