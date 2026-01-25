@@ -27,10 +27,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-   # Run test
-      - name: Run playwright test
-        run: npm run test:UI
-        
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+          name: Run test
+           run: npm run test:UI
 
       # Run tests
       - name: Run Playwright tests
