@@ -27,7 +27,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npm run test:UI
+        run: npx playwright test --grep @UI
 
       - name: Upload Playwright Report
         if: always()
