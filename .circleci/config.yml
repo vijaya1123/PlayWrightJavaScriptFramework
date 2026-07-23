@@ -1,0 +1,26 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.0.2
+
+jobs:
+
+  test:
+    docker:
+      - image: mcr.microsoft.com/playwright:v1.45.0-jammy
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - run:
+          name: Install Playwright browsers
+          command: npx playwright install --with-deps
+      - run:
+          name: Run Playwright tests
+          command: npm run test:UI
+
+workflows:
+  run-tests:
+    jobs:
+      - test
